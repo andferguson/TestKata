@@ -11,4 +11,12 @@ describe("wrap", () => {
   it("wraps words to new line", () => {
     expect(wrap("Hello World", 7)).to.equal("Hello \nWorld");
   });
+
+  it("wraps multiple words", () => {
+    expect(wrap("Hello Hello Hello", 7)).to.equal("Hello \nHello \nHello");
+  });
+
+  it("only wraps when indexOf(\" \") < maxLen", () => {
+    expect(wrap("Hello Hello Hello", 12)).to.equal("Hello Hello \nHello");
+  });
 });
